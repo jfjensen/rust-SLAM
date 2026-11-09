@@ -1,0 +1,5 @@
+/target
+# Runs recorded live from the apps (press the save key); only the generated
+# runs and av01's example live run are part of the repo.
+live_*.txt
+!av01_motion_and_scan/data/live_*.txt

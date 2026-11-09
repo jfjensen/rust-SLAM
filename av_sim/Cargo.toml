@@ -1,0 +1,20 @@
+[package]
+name = "av_sim"
+version = "0.1.0"
+edition = "2024"
+
+# The shared library for the autonomous-vehicle series (av01, av02, ...),
+# after Claus Brenner's SLAM course (github.com/jfjensen/SLAM).
+#
+#   - the course's log file format (M, S, P, L, F, D records)
+#   - a synthetic arena, robot and LiDAR that write those logs
+#   - the algorithms, one module and one Bevy plugin per course unit
+#
+# It depends on Bevy for the plugins. The `dev` feature is the same as in
+# the apps, so Bevy is built once for the whole workspace.
+[dependencies]
+bevy = "0.20"
+
+[features]
+default = ["dev"]
+dev = ["bevy/dynamic_linking"]

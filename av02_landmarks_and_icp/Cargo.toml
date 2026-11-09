@@ -1,0 +1,18 @@
+[package]
+name = "av02_landmarks_and_icp"
+version = "0.1.0"
+edition = "2024"
+
+# Autonomous vehicles 02: Unit B of Claus Brenner's SLAM course (correcting
+# the pose with the landmarks, and with the walls by ICP), on synthetic data.
+# The algorithms and the synthetic robot are in av_sim; this is the viewer.
+[dependencies]
+bevy = "0.20"
+av_sim = { path = "../av_sim" }
+
+# `dev` (on by default) switches on Bevy's dynamic_linking for fast
+# rebuilds. For a stand-alone exe:
+#     cargo build --release --no-default-features
+[features]
+default = ["dev"]
+dev = ["bevy/dynamic_linking", "av_sim/dev"]

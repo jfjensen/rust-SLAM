@@ -1,0 +1,30 @@
+# rust-SLAM: the algorithms of Claus Brenner's SLAM course, in Rust and Bevy.
+#
+#   av_sim   the library: log files, a synthetic robot and LiDAR, and the
+#            algorithms, one module and one Bevy plugin per course unit
+#   av01..   one small viewer app per unit
+[workspace]
+resolver = "3"
+members = [
+    "av_sim",
+    "av01_motion_and_scan",
+    "av02_landmarks_and_icp",
+    "av03_bayes_and_kalman",
+    "av04_extended_kalman",
+    "av05_particle_filter",
+    "av06_ekf_slam",
+    "av07_fastslam",
+    "av08_path_planning",
+    "av09_slam_navigation",
+]
+
+# --- Fast-compile settings from the official Bevy setup guide ---------------
+
+# A little optimisation for our own code.
+[profile.dev]
+opt-level = 1
+
+# Full optimisation for every dependency. On Windows this is also REQUIRED
+# with dynamic_linking, or the link fails with "too many exported symbols".
+[profile.dev.package."*"]
+opt-level = 3

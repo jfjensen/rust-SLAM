@@ -1,0 +1,18 @@
+[package]
+name = "av04_extended_kalman"
+version = "0.1.0"
+edition = "2024"
+
+# Autonomous vehicles 04: Unit D of Claus Brenner's SLAM course (localisation
+# with the extended Kalman filter), on synthetic data.
+# The filter and the synthetic robot are in av_sim; this is the viewer.
+[dependencies]
+bevy = "0.20"
+av_sim = { path = "../av_sim" }
+
+# `dev` (on by default) switches on Bevy's dynamic_linking for fast
+# rebuilds. For a stand-alone exe:
+#     cargo build --release --no-default-features
+[features]
+default = ["dev"]
+dev = ["bevy/dynamic_linking", "av_sim/dev"]

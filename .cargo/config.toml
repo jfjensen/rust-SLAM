@@ -1,0 +1,5 @@
+# Use LLD, the linker that ships with Rust, instead of Microsoft's link.exe.
+# Linking is a big part of every Bevy rebuild, and LLD is a lot faster.
+# (From the official Bevy setup guide, Windows section.)
+[target.x86_64-pc-windows-msvc]
+linker = "rust-lld.exe"

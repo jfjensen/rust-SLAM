@@ -1,0 +1,18 @@
+[package]
+name = "av09_slam_navigation"
+version = "0.1.0"
+edition = "2024"
+
+# Autonomous vehicles 09: Units F and PP of Claus Brenner's SLAM course
+# together: the robot drives to a goal, planning on its own EKF SLAM map.
+# The navigator is in av_sim (unit_nav); this is the viewer.
+[dependencies]
+bevy = "0.20"
+av_sim = { path = "../av_sim" }
+
+# `dev` (on by default) switches on Bevy's dynamic_linking for fast
+# rebuilds. For a stand-alone exe:
+#     cargo build --release --no-default-features
+[features]
+default = ["dev"]
+dev = ["bevy/dynamic_linking", "av_sim/dev"]
